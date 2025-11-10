@@ -6,7 +6,9 @@ function Leaderboards() {
   useEffect(() => {
     async function fetchLeaderboard() {
       try {
-        const res = await fetch("http://localhost:5000/leaderboard");
+        const API_URL = import.meta.env.VITE_API_URL;
+
+        const res = await fetch(`${API_URL}/leaderboard`);
         const data = await res.json();
         setPlayers(data);
       } catch (error) {
