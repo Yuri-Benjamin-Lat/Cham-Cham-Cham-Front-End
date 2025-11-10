@@ -13,7 +13,7 @@ export default function Login() {
 
     const [successMessage, setSuccessMessage] = useState("");
 
-    const API_URL = "http://localhost:5000/auth";
+    const API_URL = import.meta.env.VITE_API_URL; // e.g. https://your-backend.vercel.app
 
     async function handleSignUp() {
         setLoading(true);
