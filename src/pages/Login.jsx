@@ -25,7 +25,7 @@ function Login() {
             onClick={() => navigate('/home')}
             className="tracking-widest block mx-auto mt-3 w-64 py-3 bg-[#E98A32] text-white text-xl font-thin rounded-full shadow-md hover:bg-[#0B3A63] transition-colors"
           >
-            CLICK HERE TO ENTER THE GAME, BECAUSE DEPLOYMENT IS SO HARD TO DO OMG
+            CLICK HERE TO ENTER THE GAME, BECAUSE V----- IS SO SLOW
           </button>
         </div>
 
