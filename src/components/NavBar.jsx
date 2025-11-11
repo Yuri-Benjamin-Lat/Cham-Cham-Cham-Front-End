@@ -1,11 +1,34 @@
 function NavBar({ onOpenHowToPlay, onSignOut, onToggleWarmMode, isWarmMode }) {
   return (
-    <nav className="w-full flex justify-center gap-8 pt-8">
+    <nav
+      className="
+        w-full 
+        flex 
+        flex-col sm:flex-row 
+        items-center 
+        justify-center 
+        gap-4 sm:gap-8 
+        pt-6 sm:pt-8 
+        px-4
+      "
+    >
 
-      {/* Dark Mode (future) */}
+      {/* Warm Mode */}
       <button
         onClick={onToggleWarmMode}
-        className="tracking-widest pl-5 pr-5 py-1 bg-[#0B3A63] text-white rounded-full text-lg font-thin shadow-md hover:bg-[#E98A32] transition-colors"
+        className="
+          tracking-widest 
+          px-5 py-2 
+          bg-[#0B3A63] 
+          text-white 
+          rounded-full 
+          text-base sm:text-lg 
+          font-thin 
+          shadow-md 
+          hover:bg-[#E98A32] 
+          transition-colors
+          w-full sm:w-auto
+        "
       >
         Warm Mode
       </button>
@@ -13,7 +36,19 @@ function NavBar({ onOpenHowToPlay, onSignOut, onToggleWarmMode, isWarmMode }) {
       {/* How To Play */}
       <button
         onClick={onOpenHowToPlay}
-        className="tracking-widest pl-5 pr-5 py-1 bg-[#0B3A63] text-white rounded-full text-lg font-thin shadow-md hover:bg-[#E98A32] transition-colors"
+        className="
+          tracking-widest 
+          px-5 py-2 
+          bg-[#0B3A63] 
+          text-white 
+          rounded-full 
+          text-base sm:text-lg
+          font-thin 
+          shadow-md 
+          hover:bg-[#E98A32] 
+          transition-colors
+          w-full sm:w-auto
+        "
       >
         How To Play
       </button>
@@ -21,7 +56,19 @@ function NavBar({ onOpenHowToPlay, onSignOut, onToggleWarmMode, isWarmMode }) {
       {/* Sign Out */}
       <button
         onClick={onSignOut}
-        className="tracking-widest pl-5 pr-5 py-1 bg-[#0B3A63] text-white rounded-full text-lg font-thin shadow-md hover:bg-[#E98A32] transition-colors"
+        className="
+          tracking-widest 
+          px-5 py-2 
+          bg-[#0B3A63] 
+          text-white 
+          rounded-full 
+          text-base sm:text-lg
+          font-thin 
+          shadow-md 
+          hover:bg-[#E98A32] 
+          transition-colors
+          w-full sm:w-auto
+        "
       >
         Sign Out
       </button>
@@ -31,8 +78,3 @@ function NavBar({ onOpenHowToPlay, onSignOut, onToggleWarmMode, isWarmMode }) {
 }
 
 export default NavBar;
-
-/*
-Lightmode: bg-[#fff4c7]
-Warmmode: bg-[#F3D890]
-*/

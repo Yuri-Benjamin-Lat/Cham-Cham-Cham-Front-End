@@ -131,13 +131,25 @@ function Cham3x() {
 
 
     return (
-        <div className="w-full flex flex-col justify-center mb-10 items-center gap-2">
+        <div className="w-full flex flex-col justify-center mb-10 items-center gap-2 px-4">
 
-            <div className="relative aspect-square w-180 border-8 border-[#0B3A63] rounded-3xl bg-white shadow-lg overflow-hidden">
+            {/* ✅ GAME BOARD */}
+            <div
+                className="
+      relative 
+      aspect-square 
+      w-full max-w-[800px] sm:w-180 
+      border-8 border-[#0B3A63] 
+      rounded-3xl 
+      bg-white 
+      shadow-lg 
+      overflow-hidden
+    "
+            >
 
                 {/* ✅ CPU DISPLAY */}
                 <div className="absolute inset-0 flex justify-center items-center z-0">
-                    <span className="text-[#0B3A63] text-9xl font-lighter select-none">
+                    <span className="text-[#0B3A63] text-7xl sm:text-9xl font-lighter select-none">
                         {displaySymbol(computerChoice)}
                     </span>
                 </div>
@@ -147,7 +159,19 @@ function Cham3x() {
                     <div className="absolute inset-0 bg-black/20 backdrop-blur-sm z-20 flex flex-col items-center justify-center">
                         <button
                             onClick={() => setIsReady(true)}
-                            className="tracking-widest px-10 py-5 bg-[#0B3A63] text-white rounded-full text-5xl font-light shadow-md hover:bg-[#E98A32] transition"
+                            className="
+            tracking-widest 
+            px-8 sm:px-10 
+            py-4 sm:py-5 
+            bg-[#0B3A63] 
+            text-white 
+            rounded-full 
+            text-3xl sm:text-5xl 
+            font-light 
+            shadow-md 
+            hover:bg-[#E98A32] 
+            transition
+          "
                         >
                             START
                         </button>
@@ -156,20 +180,31 @@ function Cham3x() {
 
                 {/* ✅ GAME OVER OVERLAY */}
                 {isGameOver && (
-                    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-white">
-                        <p className="text-6xl font-normal drop-shadow-lg">GAME OVER</p>
+                    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-white px-4">
+                        <p className="text-4xl sm:text-6xl font-normal drop-shadow-lg">GAME OVER</p>
 
-                        <h2 className="font-thin text-2xl text-white text-center mb-4">
+                        <h2 className="font-thin text-xl sm:text-2xl text-center mb-3">
                             Score: {currentScore}
                         </h2>
 
-                        <h3 className="font-thin text-xl text-white text-center mb-6">
+                        <h3 className="font-thin text-lg sm:text-xl text-center mb-6">
                             Highest Score: {highestScore}
                         </h3>
 
                         <button
                             onClick={resetGame}
-                            className="tracking-widest px-10 py-4 bg-[#E98A32] text-white rounded-full text-3xl shadow-md hover:bg-[#0B3A63] transition"
+                            className="
+            tracking-widest 
+            px-8 sm:px-10 
+            py-3 sm:py-4 
+            bg-[#E98A32] 
+            text-white 
+            rounded-full 
+            text-2xl sm:text-3xl 
+            shadow-md 
+            hover:bg-[#0B3A63] 
+            transition
+          "
                         >
                             Play Again
                         </button>
@@ -177,49 +212,98 @@ function Cham3x() {
                 )}
 
                 {/* ✅ ARROW BUTTONS */}
+                {/* UP */}
                 <button
                     onClick={() => handlePlayerChoice("up")}
-                    className={`absolute top-4 left-1/2 -translate-x-1/2 w-60 h-16 
-                        ${getButtonColor("up")}
-                        flex items-center justify-center rounded-xl shadow-md hover:bg-[#0B3A63] transition z-10`}>
-                    <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-b-[18px] border-transparent border-b-white"></div>
+                    className={`
+        absolute 
+        top-3 sm:top-4 
+        left-1/2 -translate-x-1/2 
+        w-40 sm:w-60 
+        h-12 sm:h-16
+        ${getButtonColor("up")}
+        flex items-center justify-center 
+        rounded-xl shadow-md 
+        hover:bg-[#0B3A63] 
+        transition 
+        z-10
+      `}
+                >
+                    <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[14px] sm:border-l-[12px] sm:border-r-[12px] sm:border-b-[18px] border-transparent border-b-white"></div>
                 </button>
 
+                {/* LEFT */}
                 <button
                     onClick={() => handlePlayerChoice("left")}
-                    className={`absolute left-4 top-1/2 -translate-y-1/2 w-16 h-60
-                        ${getButtonColor("left")}
-                        flex items-center justify-center rounded-xl shadow-md hover:bg-[#0B3A63] transition z-10`}>
-                    <div className="w-0 h-0 border-t-[12px] border-b-[12px] border-r-[18px] border-transparent border-r-white"></div>
+                    className={`
+        absolute 
+        left-3 sm:left-4 
+        top-1/2 -translate-y-1/2 
+        w-12 sm:w-16 
+        h-40 sm:h-60
+        ${getButtonColor("left")}
+        flex items-center justify-center 
+        rounded-xl shadow-md 
+        hover:bg-[#0B3A63] 
+        transition 
+        z-10
+      `}
+                >
+                    <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-r-[14px] sm:border-t-[12px] sm:border-b-[12px] sm:border-r-[18px] border-transparent border-r-white"></div>
                 </button>
 
+                {/* RIGHT */}
                 <button
                     onClick={() => handlePlayerChoice("right")}
-                    className={`absolute right-4 top-1/2 -translate-y-1/2 w-16 h-60
-                        ${getButtonColor("right")}
-                        flex items-center justify-center rounded-xl shadow-md hover:bg-[#0B3A63] transition z-10`}>
-                    <div className="w-0 h-0 border-t-[12px] border-b-[12px] border-l-[18px] border-transparent border-l-white"></div>
+                    className={`
+        absolute 
+        right-3 sm:right-4
+        top-1/2 -translate-y-1/2 
+        w-12 sm:w-16 
+        h-40 sm:h-60
+        ${getButtonColor("right")}
+        flex items-center justify-center 
+        rounded-xl shadow-md 
+        hover:bg-[#0B3A63] 
+        transition 
+        z-10
+      `}
+                >
+                    <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[14px] sm:border-t-[12px] sm:border-b-[12px] sm:border-l-[18px] border-transparent border-l-white"></div>
                 </button>
 
+                {/* DOWN */}
                 <button
                     onClick={() => handlePlayerChoice("down")}
-                    className={`absolute bottom-4 left-1/2 -translate-x-1/2 w-60 h-16 
-                        ${getButtonColor("down")}
-                        flex items-center justify-center rounded-xl shadow-md hover:bg-[#0B3A63] transition z-10`}>
-                    <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[18px] border-transparent border-t-white"></div>
+                    className={`
+        absolute 
+        bottom-3 sm:bottom-4 
+        left-1/2 -translate-x-1/2 
+        w-40 sm:w-60 
+        h-12 sm:h-16
+        ${getButtonColor("down")}
+        flex items-center justify-center 
+        rounded-xl shadow-md 
+        hover:bg-[#0B3A63] 
+        transition 
+        z-10
+      `}
+                >
+                    <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-t-[14px] sm:border-l-[12px] sm:border-r-[12px] sm:border-t-[18px] border-transparent border-t-white"></div>
                 </button>
 
             </div>
 
             {/* ✅ SCORE DISPLAY */}
-            <h2 className="font-thin text-2xl text-[#E98A32] text-center pt-2">
+            <h2 className="font-thin text-xl sm:text-2xl text-[#E98A32] text-center pt-2">
                 Current Score: {currentScore}
             </h2>
-            <h2 className="font-thin text-2xl text-[#E98A32] text-center">
+            <h2 className="font-thin text-xl sm:text-2xl text-[#E98A32] text-center">
                 Highest Score: {highestScore}
             </h2>
 
         </div>
+
     );
 }
 
