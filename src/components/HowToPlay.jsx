@@ -8,10 +8,10 @@ function HowToPlay({ onClose }) {
                 bg-white/70 
                 backdrop-blur-xl 
                 shadow-xl 
-                p-4 sm:p-10 
+                p-3 sm:p-10 
                 rounded-3xl 
                 mx-4 sm:mx-auto 
-                mt-10 sm:mt-20
+                mt-8 sm:mt-20
 
                 max-h-[90vh]
                 overflow-y-auto
@@ -23,11 +23,11 @@ function HowToPlay({ onClose }) {
             <h1
                 className="
                     tracking-wider 
-                    text-2xl sm:text-5xl   /* ✅ smaller mobile title */
+                    text-xl sm:text-5xl       /* ✅ smaller mobile title */
                     font-bold 
                     text-[#0B3A63] 
                     text-center 
-                    mb-5 pb-2 
+                    mb-4 pb-1
                     font-normal
                 "
             >
@@ -35,12 +35,12 @@ function HowToPlay({ onClose }) {
             </h1>
 
             {/* 1 */}
-            <p className="block text-xl sm:text-3xl text-[#0B3A63] mb-2 font-light">
+            <p className="block text-lg sm:text-3xl text-[#0B3A63] mb-1 font-light">
                 1. Choose your direction:
             </p>
 
-            <p className="block text-base sm:text-xl text-[#0B3A63] mb-2 font-thin pl-4 sm:pl-8 pb-2">
-                - You will have to decide which way to face —
+            <p className="block text-sm sm:text-xl text-[#0B3A63] mb-2 font-thin pl-3 sm:pl-8 pb-1">
+                - Choose a direction to face —
                 <span className="text-[#E98A32]"> Up</span>,
                 <span className="text-[#E98A32]"> Down</span>,
                 <span className="text-[#E98A32]"> Left</span>, or
@@ -48,39 +48,35 @@ function HowToPlay({ onClose }) {
             </p>
 
             {/* 2 */}
-            <p className="block text-xl sm:text-3xl text-[#0B3A63] mb-2 font-light">
+            <p className="block text-lg sm:text-3xl text-[#0B3A63] mb-1 font-light">
                 2. Computer’s Guess:
             </p>
 
-            <p className="block text-base sm:text-xl text-[#0B3A63] mb-2 font-thin pl-4 sm:pl-8 pb-2">
-                - After you choose, the computer will randomly pick a direction to
-                "<span className="text-[#E98A32]">point</span>" — trying to guess which way you looked.
+            <p className="block text-sm sm:text-xl text-[#0B3A63] mb-2 font-thin pl-3 sm:pl-8 pb-1">
+                - The computer will randomly pick a direction to
+                "<span className="text-[#E98A32]">point</span>".
             </p>
 
             {/* 3 */}
-            <p className="block text-xl sm:text-3xl text-[#0B3A63] mb-2 font-light">
+            <p className="block text-lg sm:text-3xl text-[#0B3A63] mb-1 font-light">
                 3. Win or Lose the Round:
             </p>
 
-            <p className="block text-base sm:text-xl text-[#0B3A63] mb-2 font-thin pl-4 sm:pl-8">
-                - If the computer guesses a different direction, you
-                <span className="text-[#E98A32]"> win</span> the round.
+            <p className="block text-sm sm:text-xl text-[#0B3A63] mb-1 font-thin pl-3 sm:pl-8">
+                - Different direction = you <span className="text-[#E98A32]">win</span>.
             </p>
 
-            <p className="block text-base sm:text-xl text-[#0B3A63] mb-2 font-thin pl-4 sm:pl-8">
-                - If the computer guessed your direction correctly, you
-                <span className="text-[#E98A32]"> lose</span> the round.
+            <p className="block text-sm sm:text-xl text-[#0B3A63] mb-2 font-thin pl-3 sm:pl-8">
+                - Same direction = you <span className="text-[#E98A32]">lose</span>.
             </p>
 
             {/* 4 */}
-            <p className="block text-xl sm:text-3xl text-[#0B3A63] mb-2 font-light">
+            <p className="block text-lg sm:text-3xl text-[#0B3A63] mb-1 font-light">
                 4. Scoring and Ranking:
             </p>
 
-            <p className="block text-base sm:text-xl text-[#0B3A63] mb-5 font-thin pl-4 sm:pl-8 pb-5">
-                - Each win earns you points. Your total score determines your rank among other players —
-                <span className="text-[#E98A32]"> the higher your score</span>, the
-                <span className="text-[#E98A32]"> higher your position</span> on the leaderboard.
+            <p className="block text-sm sm:text-xl text-[#0B3A63] mb-4 font-thin pl-3 sm:pl-8 pb-3">
+                - Each win adds points. Higher scores place you higher on the leaderboard.
             </p>
 
             {/* Button */}
@@ -89,12 +85,12 @@ function HowToPlay({ onClose }) {
                 onClick={onClose}
                 className="
                     tracking-widest 
-                    block mx-auto mt-3 
-                    w-48 sm:w-64 
-                    py-3 
+                    block mx-auto mt-2 mb-2
+                    w-40 sm:w-64            /* ✅ smaller mobile width */
+                    py-2 sm:py-3 
                     bg-[#E98A32] 
                     text-white 
-                    text-base sm:text-xl   /* ✅ smaller button font on mobile */
+                    text-sm sm:text-xl      /* ✅ smallest mobile text */
                     font-thin 
                     rounded-full 
                     shadow-md 
@@ -104,6 +100,7 @@ function HowToPlay({ onClose }) {
             >
                 I understand
             </button>
+
         </div>
     );
 }

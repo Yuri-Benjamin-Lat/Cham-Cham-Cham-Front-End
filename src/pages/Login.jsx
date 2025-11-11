@@ -20,8 +20,6 @@ function Login() {
 
       </div>
 
-      <NonLogin />
-
       <div className="mt-auto">
         <Footer />
       </div>
