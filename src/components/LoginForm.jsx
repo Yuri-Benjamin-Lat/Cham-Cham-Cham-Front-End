@@ -31,7 +31,7 @@ export default function Login() {
             const data = await response.json();
 
             if (!response.ok) {
-                setError(data.msg || data.message || "Username already taken.");    
+                setError(data.msg || data.message || "Username already taken.");
                 setLoading(false);
                 return;
             }
@@ -92,31 +92,67 @@ export default function Login() {
     }
 
     return (
-        <div className="w-full max-w-[450px] bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-3xl mx-auto mt-20">
+        <div className="
+    w-full 
+    max-w-[450px] 
+    bg-white/70 
+    backdrop-blur-xl 
+    shadow-xl 
+    p-6 sm:p-10 
+    rounded-3xl 
+    mx-auto 
+    mt-10 sm:mt-20
+">
 
             {/* Title */}
-            <h1 className="tracking-wider text-4xl font-bold text-[#0B3A63] text-center mb-5 font-normal">
+            <h1
+                className="
+            tracking-wider 
+            text-3xl sm:text-4xl 
+            font-bold 
+            text-[#0B3A63] 
+            text-center 
+            mb-5 
+            font-normal
+        "
+            >
                 {mode === "signin" ? "Knock Knock !!" : "Who's There ??"}
             </h1>
 
             {/* Toggle */}
             <div className="flex justify-center mb-5">
-                <div className="bg-[#FFF2C9] p-1 rounded-full flex shadow-inner w-64">
+                <div className="bg-[#FFF2C9] p-1 rounded-full flex shadow-inner w-56 sm:w-64">
                     <button
-                        className={`tracking-wider font-thin flex-1 px-5 py-3 rounded-full text-xl transition-all ${mode === "signin"
-                            ? "bg-[#E98A32] text-white shadow-md"
-                            : "text-[#0B3A63]"
-                            }`}
+                        className={`
+                    tracking-wider font-thin flex-1 
+                    px-3 sm:px-5 
+                    py-2 sm:py-3 
+                    rounded-full 
+                    text-lg sm:text-xl 
+                    transition-all 
+                    ${mode === "signin"
+                                ? "bg-[#E98A32] text-white shadow-md"
+                                : "text-[#0B3A63]"
+                            }
+                `}
                         onClick={() => setMode("signin")}
                     >
                         Sign In
                     </button>
 
                     <button
-                        className={`tracking-wider font-thin flex-1 px-5 py-3 rounded-full text-xl transition-all ${mode === "signup"
-                            ? "bg-[#E98A32] text-white shadow-md"
-                            : "text-[#0B3A63]"
-                            }`}
+                        className={`
+                    tracking-wider font-thin flex-1 
+                    px-3 sm:px-5 
+                    py-2 sm:py-3 
+                    rounded-full 
+                    text-lg sm:text-xl 
+                    transition-all 
+                    ${mode === "signup"
+                                ? "bg-[#E98A32] text-white shadow-md"
+                                : "text-[#0B3A63]"
+                            }
+                `}
                         onClick={() => setMode("signup")}
                     >
                         Sign Up
@@ -125,27 +161,53 @@ export default function Login() {
             </div>
 
             {/* FORM */}
-            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-4 sm:gap-5" onSubmit={handleSubmit}>
 
                 <div>
-                    <label className="block text-xl text-[#1E4A78] mb-2 font-thin">𖦹 Username</label>
+                    <label className="block text-lg sm:text-xl text-[#1E4A78] mb-2 font-thin">
+                        𖦹 Username
+                    </label>
                     <input
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        className="w-full px-4 py-2 rounded-full border border-[#DCDCDC] bg-white/80 text-[#1F4F7A] focus:outline-none focus:ring-2 focus:ring-[#F6A348] shadow-sm"
+                        className="
+                    w-full 
+                    px-4 py-2 
+                    rounded-full 
+                    border border-[#DCDCDC] 
+                    bg-white/80 
+                    text-[#1F4F7A] 
+                    focus:outline-none 
+                    focus:ring-2 
+                    focus:ring-[#F6A348] 
+                    shadow-sm
+                "
                         placeholder={mode === "signin" ? "Enter your username" : "Create a username"}
                         required
                     />
                 </div>
 
                 <div>
-                    <label className="block text-xl text-[#1E4A78] mb-2 font-thin">ᝰ Password</label>
+                    <label className="block text-lg sm:text-xl text-[#1E4A78] mb-2 font-thin">
+                        ᝰ Password
+                    </label>
                     <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full px-4 py-2 rounded-full border border-[#DCDCDC] bg-white/80 text-[#1F4F7A] focus:outline-none focus:ring-2 focus:ring-[#F6A348] shadow-sm"
+                        className="
+                    w-full 
+                    px-4 py-2 
+                    rounded-full 
+                    border border-[#DCDCDC] 
+                    bg-white/80 
+                    text-[#1F4F7A] 
+                    focus:outline-none 
+                    focus:ring-2 
+                    focus:ring-[#F6A348] 
+                    shadow-sm
+                "
                         placeholder={mode === "signin" ? "Enter your password" : "Create a password"}
                         required
                     />
@@ -153,17 +215,31 @@ export default function Login() {
 
                 {/* Error */}
                 {error && (
-                    <p className="text-red-500 text-center">{error}</p>
+                    <p className="text-red-500 text-center text-sm sm:text-base">{error}</p>
                 )}
 
-                <p className="tracking-wider text-base text-[#E98A32] text-center">
+                <p className="tracking-wider text-sm sm:text-base text-[#E98A32] text-center px-3">
                     Note: If you forget your password, your account is lost forever 𐔌՞. .՞𐦯...
                 </p>
 
                 <button
                     type="submit"
                     disabled={loading}
-                    className="tracking-widest mx-auto mt-3 w-64 py-3 bg-[#E98A32] text-white font-thin text-xl rounded-full shadow-md hover:bg-[#0B3A63] transition-colors"
+                    className="
+                tracking-widest 
+                mx-auto 
+                mt-3 
+                w-56 sm:w-64 
+                py-2.5 sm:py-3 
+                bg-[#E98A32] 
+                text-white 
+                font-thin 
+                text-lg sm:text-xl 
+                rounded-full 
+                shadow-md 
+                hover:bg-[#0B3A63] 
+                transition-colors
+            "
                 >
                     {loading
                         ? (mode === "signin" ? "Logging in..." : "Creating...")
@@ -174,9 +250,9 @@ export default function Login() {
 
             {/* ✅ SUCCESS MODAL */}
             {successMessage && (
-                <div className="fixed inset-0 flex items-center justify-center z-50">
-                    <div className="bg-white p-10 rounded-3xl shadow-xl w-[350px] text-center transform -translate-y-95">
-                        <p className="text-2xl text-[#0B3A63] font-normal">
+                <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white p-6 sm:p-10 rounded-3xl shadow-xl w-full max-w-[350px] text-center">
+                        <p className="text-xl sm:text-2xl text-[#0B3A63] font-normal">
                             {successMessage}
                         </p>
                     </div>
@@ -184,5 +260,6 @@ export default function Login() {
             )}
 
         </div>
+
     );
 }
