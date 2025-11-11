@@ -15,6 +15,8 @@ export default function Login() {
 
     const API_URL = import.meta.env.VITE_API_URL; // e.g. https://your-backend.vercel.app
 
+    console.log("DEBUG API_URL:", API_URL); // this is for debugging
+
     async function handleSignUp() {
         setLoading(true);
         setError("");
