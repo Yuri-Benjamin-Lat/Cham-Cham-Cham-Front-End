@@ -182,6 +182,7 @@ export default function Login() {
                     focus:ring-2 
                     focus:ring-[#F6A348] 
                     shadow-sm
+                    font-serif
                 "
                         placeholder={mode === "signin" ? "Enter your username" : "Create a username"}
                         required
@@ -207,6 +208,7 @@ export default function Login() {
                     focus:ring-2 
                     focus:ring-[#F6A348] 
                     shadow-sm
+                    font-serif
                 "
                         placeholder={mode === "signin" ? "Enter your password" : "Create a password"}
                         required
