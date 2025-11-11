@@ -7,7 +7,6 @@ function Leaderboards() {
     async function fetchLeaderboard() {
       try {
         const API_URL = import.meta.env.VITE_API_URL;
-
         const res = await fetch(`${API_URL}/leaderboard`);
         const data = await res.json();
         setPlayers(data);
@@ -16,11 +15,11 @@ function Leaderboards() {
       }
     }
 
-    fetchLeaderboard(); // ✅ initial load
-    const interval = setInterval(fetchLeaderboard, 3000); // auto-refresh every 3 seconds
+    fetchLeaderboard();
+    const interval = setInterval(fetchLeaderboard, 3000);
 
-    return () => clearInterval(interval); // cleanup
-  }, []);
+    return () => clearInterval(interval);
+  }, [import.meta.env.VITE_API_URL]);
 
   const medal = (rank) => {
     if (rank === 1) return "🥇";

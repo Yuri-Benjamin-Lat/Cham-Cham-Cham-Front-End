@@ -31,7 +31,7 @@ export default function Login() {
             const data = await response.json();
 
             if (!response.ok) {
-                setError(data.message || "Username already taken.");
+                setError(data.msg || data.message || "Username already taken.");    
                 setLoading(false);
                 return;
             }
@@ -67,7 +67,7 @@ export default function Login() {
             const data = await response.json();
 
             if (!response.ok) {
-                setError(data.message || "Login failed.");
+                setError(data.msg || data.message || "Login failed.");
                 setLoading(false);
                 return;
             }
