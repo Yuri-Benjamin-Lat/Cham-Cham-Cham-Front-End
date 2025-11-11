@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 function NonLogin() {
+
+    const navigate = useNavigate();
+    
     return (
         <div className="w-full max-w-[450px] bg-white/70 backdrop-blur-xl shadow-xl p-6 sm:p-10 rounded-3xl mx-auto">
             <div>
