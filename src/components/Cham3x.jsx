@@ -10,6 +10,7 @@ function Cham3x() {
     const [highestScore, setHighestScore] = useState(0);
 
     const username = localStorage.getItem("username"); // ✅ get current user
+    const API_URL = import.meta.env.VITE_API_URL;
     const directions = ["up", "down", "left", "right"];
 
     /* -----------------------------------------------------------
@@ -18,7 +19,7 @@ function Cham3x() {
     useEffect(() => {
         async function fetchHighest() {
             try {
-                const res = await fetch(`http://localhost:5000/score/${username}`);
+                const res = await fetch(`${API_URL}/score/${username}`);
                 const data = await res.json();
 
                 if (data.highestScore !== undefined) {
@@ -29,34 +30,24 @@ function Cham3x() {
             }
         }
 
-        if (username) {
-            fetchHighest();
-        }
-    }, [username]);
+        if (username) fetchHighest();
+    }, [username, API_URL]);
 
 
-    /* -----------------------------------------------------------
-       ✅ SAVE highest score to backend
-    ------------------------------------------------------------*/
+    /* ✅ Save score to backend */
     async function saveScoreToDB(score) {
         try {
-            await fetch("http://localhost:5000/score/save", {
+            await fetch(`${API_URL}/score/save`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    username,
-                    score,
-                }),
+                body: JSON.stringify({ username, score }),
             });
         } catch (err) {
             console.error("Failed to save score:", err);
         }
     }
 
-
-    /* -----------------------------------------------------------
-       ✅ MAIN GAME LOGIC
-    ------------------------------------------------------------*/
+    /* ✅ Main game logic */
     function handlePlayerChoice(choice) {
         if (!isReady || isGameOver) return;
 
@@ -66,23 +57,18 @@ function Cham3x() {
         setComputerChoice(cpu);
 
         if (cpu === choice) {
-            // ✅ Player loses
             setIsGameOver(true);
 
-            // ✅ Update local highest score
             if (currentScore > highestScore) {
                 setHighestScore(currentScore);
-                saveScoreToDB(currentScore); // ✅ Save to backend
+                saveScoreToDB(currentScore);
             } else {
                 saveScoreToDB(highestScore);
             }
-
         } else {
-            // ✅ Player wins → +1 score
             setCurrentScore(prev => prev + 1);
         }
     }
-
 
     /* -----------------------------------------------------------
        ✅ TEMPORARY color flash (green/red) for 0.5s
