@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className="px-4">
+    <div className="px-0">
       <h1
         className="
           text-4xl sm:text-6xl lg:text-7xl
