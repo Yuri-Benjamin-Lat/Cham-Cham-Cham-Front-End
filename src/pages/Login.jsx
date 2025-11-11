@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import LoginForm from '../components/LoginForm.jsx'
 import Header from '../components/Header.jsx';
 import Footer from "../components/Footer.jsx";
+import NonLogin from '../components/NonLogin.jsx';
 
 function Login() {
   const navigate = useNavigate();
@@ -19,19 +20,7 @@ function Login() {
 
       </div>
 
-      <div className="w-full max-w-[450px] bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-3xl mx-auto">
-        <div className="">
-          <h2 className="block text-xl text-[#1E4A78] font-thin text-center">- Enter without Signing In -</h2>
-          <h2 className="block text-xl text-[#1E4A78] mb-5 font-thin text-center">Score will not be saved</h2>
-          <button
-            type="button"
-            onClick={() => navigate('/home')}
-            className="tracking-widest block mx-auto mt-3 w-90 py-3 bg-[#E98A32] text-white text-xl font-thin rounded-full shadow-md hover:bg-[#0B3A63] transition-colors"
-          >
-            Click Here
-          </button>
-        </div>
-      </div>
+      <NonLogin />
 
       <div className="mt-auto">
         <Footer />
